@@ -29,7 +29,6 @@ function setCurrenciesText() {
         usdToTry.innerHTML = `1 $ = ${currencies.USD_TRY.val} ₺`;
         eurToTry.innerHTML = `1 € = ${currencies.EUR_TRY.val} ₺`;
 
-        console.log(currencies);
     });
 
 }
