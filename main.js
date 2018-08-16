@@ -1,35 +1,39 @@
 const API_URL = "https://free.currencyconverterapi.com/api/v6/convert?q=USD_TRY,EUR_TRY&compact=y";
-
+var txtDollarValue;
+var txtEuroValue;
+var apiDollarValue;
+var apiEuroValue;
 function getCurrencies() {
-    return new Promise((resolve, reject) => {
-        var request = new XMLHttpRequest();
-        request.open('GET', API_URL, true);
-        request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        request.setRequestHeader('Content-Type', 'application/json');
-        request.onload = function () {
-            if (request.status ===200) {
-                const response = JSON.parse(request.response);
-                resolve(response);
-
-            } else {
-                reject(request);
-            }
-        };
-        request.onerror = function (r) {
-            reject(r);
-        };
-        request.send();
+    fetch(API_URL, { method: 'GET', mode: 'cors' }).then(res => res.json()).then((res) => {
+        apiDollarValue = res.USD_TRY.val;
+        apiEuroValue = res.EUR_TRY.val;
+        txtDollarValue = parseInt(document.getElementById("txtDollar").value);
+        txtEuroValue = parseInt(document.getElementById("txtEuro").value);
+        setDollarText();
+        setEuroText();
     });
-
 }
-function setCurrenciesText() {
-    getCurrencies().then(currencies => {
-        const usdToTry= document.getElementById("usd-to-try");
-        const eurToTry= document.getElementById("eur-to-try");
-        usdToTry.innerHTML = `1 $ = ${currencies.USD_TRY.val} ₺`;
-        eurToTry.innerHTML = `1 € = ${currencies.EUR_TRY.val} ₺`;
+function setDollarText() {
+    const usdToTry = document.getElementById("usdTryValue");
+    usdToTry.innerHTML = txtDollarValue * apiDollarValue;
+}
+function setEuroText() {
+    const eurToTry = document.getElementById("euroTryValue");
+    eurToTry.innerHTML = txtEuroValue * apiEuroValue;
+}
 
+window.addEventListener("load", () => {
+    getCurrencies();
+    document.getElementById("txtDollar").addEventListener("keyup", (e) => {
+        if (e.target.value) {
+            txtDollarValue = parseInt(e.target.value);
+            setDollarText();
+        }
     });
-
-}
-window.addEventListener("load",()=>setCurrenciesText());
+    document.getElementById("txtEuro").addEventListener("keydown", (e) => {
+        if (!isNaN(e.target.value)) {
+            txtDollarValue = e.target.value;
+            setEuroText();
+        }
+    });
+});

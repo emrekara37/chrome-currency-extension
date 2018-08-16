@@ -11,14 +11,21 @@
     <script src="main.js"></script>
 </head>
 
-<body style="min-width: 300px;;">
+<body style="min-width: 500px;;">
     <div class="card">
         <h5 class="card-header">Kur Bilgileri</h5>
         <div class="card-body">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item" ><span class="badge badge-primary" style="font-size:15px;font-weight: bold;" id="usd-to-try">Yükleniyor... </span></li>
-                <li class="list-group-item" ><span class="badge badge-info" style="font-size:15px;font-weight: bold;" id="eur-to-try">Yükleniyor... </span></li>
-             
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <input type="text"  id="txtDollar" style="width: 60px;display: inline;"  class="form-control" value="1">
+                    <label style="font-weight: bold;font-size: 20px;"> $
+                        <span class="badge badge-info" id="usdTryValue">Yükleniyor...</span> ₺</label>
+                </li>
+                <li class="list-group-item">
+                    <input type="text"  id="txtEuro" style="width: 60px;display: inline;" class="form-control" value="1">
+                    <label style="font-weight: bold;font-size: 20px;"> €
+                        <span class="badge badge-info" id="euroTryValue">Yükleniyor..</span> ₺</label>
+                </li>
             </ul>
         </div>
     </div>
