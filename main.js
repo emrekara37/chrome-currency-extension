@@ -7,7 +7,7 @@ function getCurrencies() {
         request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         request.setRequestHeader('Content-Type', 'application/json');
         request.onload = function () {
-            if (request.status >= 200 && request.status < 400) {
+            if (request.status ===200) {
                 const response = JSON.parse(request.response);
                 resolve(response);
 
