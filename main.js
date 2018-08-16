@@ -30,9 +30,9 @@ window.addEventListener("load", () => {
             setDollarText();
         }
     });
-    document.getElementById("txtEuro").addEventListener("keydown", (e) => {
-        if (!isNaN(e.target.value)) {
-            txtDollarValue = e.target.value;
+    document.getElementById("txtEuro").addEventListener("keyup", (e) => {
+        if (e.target.value) {
+            txtEuroValue = parseInt(e.target.value);
             setEuroText();
         }
     });
