@@ -36,4 +36,14 @@ window.addEventListener("load", () => {
             setEuroText();
         }
     });
+
+
+  /**
+   * 
+   * New Feature next release version
+   
+    setTimeout(() => {
+        getCurrencies();
+    }, 3000);
+    */
 });
