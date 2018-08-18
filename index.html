@@ -8,12 +8,7 @@
     <title>Kur Bilgileri</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
     <script src="main.js"></script>
-    <style>
-    .up{font-size: 35px;color:green;} 
-    .down{font-size: 35px;color:red;}
-    </style>
 </head>
 
 <body style="min-width: 300px;;">
@@ -22,18 +17,22 @@
         <div class="card-body">
             <ul class="list-group">
                 <li class="list-group-item">
-                    <input type="text"  id="txtDollar" style="width: 60px;display: inline;"  class="form-control" value="1">
+                    <input type="text" id="txtDollar" style="width: 60px;display: inline;" class="form-control" value="1">
                     <label style="font-weight: bold;font-size: 20px;"> $
-                        <span class="badge badge-info" id="usdTryValue">Yükleniyor...</span> ₺ <span id="icond"></span> </label>
+                        <span class="badge badge-info" id="usdTryValue">Yükleniyor...</span> ₺
+                        <span id="icond"></span>
+                    </label>
                 </li>
                 <li class="list-group-item">
-                    <input type="text"  id="txtEuro" style="width: 60px;display: inline;" class="form-control" value="1">
+                    <input type="text" id="txtEuro" style="width: 60px;display: inline;" class="form-control" value="1">
                     <label style="font-weight: bold;font-size: 20px;"> €
-                        <span class="badge badge-info" id="euroTryValue">Yükleniyor..</span> ₺ <span id="icone"></span> </label>
+                        <span class="badge badge-info" id="euroTryValue">Yükleniyor..</span> ₺
+                        <span id="icone"></span>
+                    </label>
                 </li>
             </ul>
         </div>
     </div>
-</body> 
+</body>
 
 </html>
