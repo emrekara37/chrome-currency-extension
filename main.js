@@ -44,15 +44,20 @@ function setEuroText() {
     eurToTry.innerHTML = txtEuroValue * apiEuroValue;
     document.getElementById("icone").innerHTML = euroPositive ? caretUp : caretDown;
 }
-
+function getBeforeDovizComApi(){
+    fetch("https://free.currencyconverterapi.com/api/v6/convert?q=USD_TRY,EUR_TRY&compact=y").then(res=>res.json()).then(res=>{
+        eurToTry.innerHTML =res.EUR_TRY.val.toFixed(4);
+        usdToTry.innerHTML =res.USD_TRY.val.toFixed(4);
+    })
+}
 window.addEventListener("load", () => {
     usdToTry = document.getElementById("usdTryValue");
     eurToTry = document.getElementById("euroTryValue");
-    eurToTry.innerHTML = localStorage.getItem("euro") ? localStorage.getItem("euro") : eurToTry.innerHTML;
-    usdToTry.innerHTML = localStorage.getItem("dollar") ? localStorage.getItem("dollar") : eurToTry.innerHTML;
+  
+    getBeforeDovizComApi();
     getCurrency("USD").then((res => {
         txtDollarValue = parseInt(document.getElementById("txtDollar").value);
-        localStorage.setItem("dollar",res.selling);
+     
         apiDollarValue = res.selling;
         dollarPositive = res.change_rate > 0;
         setDollarText();
@@ -60,8 +65,6 @@ window.addEventListener("load", () => {
     getCurrency("EUR").then((res => {
         txtEuroValue = parseInt(document.getElementById("txtDollar").value);
         apiEuroValue = res.selling;
-        localStorage.setItem("euro",res.selling);
-        
         euroPositive = res.change_rate > 0;
         setEuroText();
     }));

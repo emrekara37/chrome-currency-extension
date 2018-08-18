@@ -2,7 +2,7 @@
     "manifest_version":2,
     "name":"Kur Gösterici",
     "description":"Anlık olarak euro ve abd dolarının değerini görebilirsiniz",
-    "version":"1.7",
+    "version":"1.8",
     "browser_action":{
         "default_title":"Kur Bilgileri",
         "default_icon":"icon.png",
