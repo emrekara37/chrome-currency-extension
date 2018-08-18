@@ -46,18 +46,18 @@ function setEuroText() {
 }
 function getBeforeDovizComApi(){
     fetch("https://free.currencyconverterapi.com/api/v6/convert?q=USD_TRY,EUR_TRY&compact=y").then(res=>res.json()).then(res=>{
-        eurToTry.innerHTML =res.EUR_TRY.val.toFixed(4);
-        usdToTry.innerHTML =res.USD_TRY.val.toFixed(4);
+        apiDollarValue = res.USD_TRY.val.toFixed(4);
+        apiEuroValue = res.EUR_TRY.val.toFixed(4);
+        eurToTry.innerHTML =apiEuroValue;
+        usdToTry.innerHTML =apiDollarValue;
     })
 }
 window.addEventListener("load", () => {
     usdToTry = document.getElementById("usdTryValue");
     eurToTry = document.getElementById("euroTryValue");
-  
     getBeforeDovizComApi();
     getCurrency("USD").then((res => {
         txtDollarValue = parseInt(document.getElementById("txtDollar").value);
-     
         apiDollarValue = res.selling;
         dollarPositive = res.change_rate > 0;
         setDollarText();
