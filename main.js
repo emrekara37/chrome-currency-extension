@@ -52,7 +52,7 @@ function setDollarText() {
 function setEuroText() {
     eurToTry.innerHTML = txtEuroValue * apiEuroValue;
     if(objIconE !== obj.None){
-        document.getElementById("icond").innerHTML = objIconE === obj.Up ? caretUp : caretDown;
+        document.getElementById("icone").innerHTML = objIconE === obj.Up ? caretUp : caretDown;
     }
 }
 function getBeforeDovizComApi(){
