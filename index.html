@@ -8,7 +8,7 @@
     <title>Kur Bilgileri</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <script src="main.js"></script>
+
 </head>
 
 <body style="min-width: 300px;;">
@@ -17,22 +17,21 @@
         <div class="card-body">
             <ul class="list-group">
                 <li class="list-group-item">
-                    <input type="text" id="txtDollar" style="width: 60px;display: inline;" class="form-control" value="1">
+                    <input type="number" id="txtDollar" style="width: 70px;display: inline;" data-type="usd" onkeyup="onKeyUp(this)"  class="form-control" value="1">
                     <label style="font-weight: bold;font-size: 20px;"> $
                         <span class="badge badge-info" id="usdTryValue">Yükleniyor...</span> ₺
-                        <span id="icond"></span>
                     </label>
                 </li>
                 <li class="list-group-item">
-                    <input type="text" id="txtEuro" style="width: 60px;display: inline;" class="form-control" value="1">
+                    <input type="number" id="txtEuro" style="width: 70px;display: inline;" data-type="eur" onkeyup="onKeyUp(this)" class="form-control" value="1">
                     <label style="font-weight: bold;font-size: 20px;"> €
                         <span class="badge badge-info" id="euroTryValue">Yükleniyor..</span> ₺
-                        <span id="icone"></span>
+       
                     </label>
                 </li>
             </ul>
         </div>
     </div>
 </body>
-
+<script src="main.js"></script>
 </html>
