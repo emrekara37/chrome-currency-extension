@@ -15,17 +15,22 @@ window.addEventListener("load", async () => {
     } catch (e) {
         console.error(e);
     }
-});
-function onKeyUp(element) {
-    const type = element.attributes["data-type"].value;
-    const value = element.value ? parseInt(element.value, 10) : 1;
-    switch (type) {
-        case "eur":
-            eurToTry.innerHTML = (apiEuroValue * value).toFixed(4);
-            break;
+    function onKeyUp(type, val) {
+        const value = val ? parseInt(val, 10) : 1;
+        switch (type) {
+            case "eur":
+                eurToTry.innerHTML = (apiEuroValue * value).toFixed(4);
+                break;
 
-        case "usd":
-            usdToTry.innerHTML = (apiDollarValue * value).toFixed(4);
-            break;
+            case "usd":
+                usdToTry.innerHTML = (apiDollarValue * value).toFixed(4);
+                break;
+        }
     }
-}
+    document.getElementById("txtDollar").addEventListener("keyup", (e) => {
+        onKeyUp("usd", e.target.value);
+    })
+    document.getElementById("txtEuro").addEventListener("keyup", (e) => {
+        onKeyUp("eur", e.target.value);
+    })
+});
