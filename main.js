@@ -1,7 +1,7 @@
 var usd;
 var euro;
-var usdToTry;
-var eurToTry;
+var spanUsd;
+var spanEuro;
 window.addEventListener("load", async () => {
     spanUsd = document.getElementById("usd");
     spanEuro = document.getElementById("euro");
