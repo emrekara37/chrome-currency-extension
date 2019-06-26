@@ -6,10 +6,11 @@ window.addEventListener("load", async () => {
     usdToTry = document.getElementById("usdTryValue");
     eurToTry = document.getElementById("euroTryValue");
     try {
-        const response = await fetch("https://free.currencyconverterapi.com/api/v6/convert?q=USD_TRY,EUR_TRY&compact=y&apiKey=8d6d0cf9bced5ab31148");
+        const response = await fetch("https://api.exchangeratesapi.io/latest?base=TRY");
         const data = await response.json();
-        apiDollarValue = data.USD_TRY.val.toFixed(4);
-        apiEuroValue = data.EUR_TRY.val.toFixed(4);
+        const { rates } = data;
+        apiDollarValue = (1 / rates.USD).toFixed(4);
+        apiEuroValue = (1 / rates.EUR).toFixed(4);
         eurToTry.innerHTML = apiEuroValue;
         usdToTry.innerHTML = apiDollarValue;
     } catch (e) {
