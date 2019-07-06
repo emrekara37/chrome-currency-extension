@@ -21,6 +21,6 @@ window.addEventListener("load", async () => {
         spanUsd.innerHTML = (usd * getInputValue(value)).toFixed(4);
     });
     document.getElementById("txtEuro").addEventListener("keyup", ({ target: { value } }) => {
-        spanEuro.innerHTML = (usd * getInputValue(value)).toFixed(4);
+        spanEuro.innerHTML = (euro * getInputValue(value)).toFixed(4);
     });
 });
